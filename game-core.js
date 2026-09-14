@@ -39,10 +39,34 @@ export function swapHorizontal(grid, x, y, dir) {
   if (nx < 0 || nx >= grid[y].length) return false;
   const a = grid[y][x];
   const b = grid[y][nx];
-  if (a === null || b === null) return false;
+  if (a === null) return false; // cursor cell must hold a block
+  if (b === null) {
+    // Swap into an empty space: the block moves into it, and blocks above
+    // the vacated cell fall down to fill the gap.
+    grid[y][nx] = a;
+    grid[y][x] = null;
+    compactAbove(grid, x, y);
+    return true;
+  }
   grid[y][x] = b;
   grid[y][nx] = a;
   return true;
+}
+
+// Blocks above the vacated cell (rows 0..y in column x) fall down so the gap
+// at row y is filled, preserving order. Rows below y are untouched.
+function compactAbove(grid, x, y) {
+  const seq = [];
+  for (let ry = 0; ry <= y; ry++) {
+    const v = grid[ry][x];
+    if (v !== null) seq.push(v);
+  }
+  for (let ry = 0; ry <= y; ry++) grid[ry][x] = null;
+  let cnt = seq.length;
+  for (let ry = y; cnt > 0; ry--) {
+    grid[ry][x] = seq[cnt - 1];
+    cnt--;
+  }
 }
 
 // Find every cell belonging to a horizontal contiguous run of >=3 same-color

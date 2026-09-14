@@ -39,23 +39,39 @@ test('swapHorizontal swaps adjacent occupied cells', () => {
   assert.equal(core.getBlock(g, 3, 3), 1);
 });
 
-test('swap refuses empty neighbor and out-of-bounds', () => {
+test('swap refuses out-of-bounds; empty cursor cell cannot swap', () => {
   const g = board();
   core.setBlock(g, 0, 0, 0);
-  assert.equal(core.swapHorizontal(g, 0, 0, 1), false, 'right neighbor empty');
-  assert.equal(core.getBlock(g, 0, 0), 0, 'no change');
-  assert.equal(core.swapHorizontal(g, 0, 0, -1), false, 'out of bounds left');
   assert.equal(core.swapHorizontal(g, 5, 0, 1), false, 'out of bounds right');
+  assert.equal(core.swapHorizontal(g, 0, 0, -1), false, 'out of bounds left');
+  // cursor cell itself must hold a block: swap with empty cursor fails
+  const h = board();
+  core.setBlock(h, 1, 0, 1);
+  assert.equal(core.swapHorizontal(h, 0, 0, 1), false, 'empty cursor cell');
+  assert.equal(core.getBlock(h, 1, 0), 1, 'no change');
+});
+
+test('swap into an empty space: block moves, blocks above fall', () => {
+  const g = board();
+  // column 3: block color 0 at y=5, block color 1 above it at y=4
+  core.setBlock(g, 3, 5, 0);
+  core.setBlock(g, 3, 4, 1);
+  // right neighbor (4,5) is empty
+  assert.equal(core.swapHorizontal(g, 3, 5, 1), true, 'swap into empty succeeds');
+  assert.equal(core.getBlock(g, 4, 5), 0, 'block moved into empty space');
+  assert.equal(core.getBlock(g, 3, 5), 1, 'block above fell into the gap');
+  assert.equal(core.getBlock(g, 3, 4), null, 'vacated column compacted');
 });
 
 test('swap is horizontal-only (no vertical swap helper, y ignored)', () => {
   const g = board();
   core.setBlock(g, 2, 3, 0);
   core.setBlock(g, 2, 4, 1);
-  // dir targets x+1, not y — block below must not be involved
-  assert.equal(core.swapHorizontal(g, 2, 3, 1), false, 'right neighbor empty');
-  assert.equal(core.getBlock(g, 2, 3), 0);
-  assert.equal(core.getBlock(g, 2, 4), 1);
+  // dir targets x+1 — the block below (y+1) must not move vertically
+  assert.equal(core.swapHorizontal(g, 2, 3, 1), true, 'moves into empty neighbor');
+  assert.equal(core.getBlock(g, 3, 3), 0, 'block moved horizontally');
+  assert.equal(core.getBlock(g, 2, 3), null, 'vacated cell emptied');
+  assert.equal(core.getBlock(g, 2, 4), 1, 'vertical neighbor untouched');
 });
 
 test('findMatches detects horizontal runs of 3+', () => {

@@ -31,7 +31,9 @@ Or locally:
 ## Rules (faithful to Tetris Attack)
 
 - **Horizontal swaps only** — you swap the block under the cursor with the
-  block immediately left or right of it. No vertical swaps.
+  block immediately left or right of it. Swapping into an empty space is
+  allowed: the block moves into the gap and blocks above the vacated cell fall
+  down.
 - **Matches clear horizontally OR vertically**: any contiguous run of 3+
   same-color blocks in a single row OR a single column clears.
 - After a clear, blocks above fall down; the fall can create **new matches**,
