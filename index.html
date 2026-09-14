@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tetris Attack (ASCII)</title>
-<!-- v7 build: rows slide in at the bottom (field rises), partial reveal of the
-     new row, bottom row locked until fully visible -->
+<!-- v8 build: simple-shape cells, new row slides UP as one unit, matches and
+     cursor unlock only once the row is fully visible -->
 <style>
   :root {
     --bg: #0a0a14;
@@ -91,35 +91,45 @@
   #soundBtn:hover { background: #1c1c30; }
   #soundBtn.muted { border-color: #555; color: #888; }
   #board {
+    position: relative;
+    width: 246px;                 /* 6 cells * 34px + gaps + padding */
+    height: 444px;                /* 12 rows * 36px + padding */
+    overflow: hidden;
     background: var(--panel);
     border: 2px solid #2a2a44;
     border-radius: 8px;
-    padding: 14px 18px;
-    font-size: 22px;
-    line-height: 1.25;
-    letter-spacing: 2px;
+    padding: 6px;
     box-shadow: 0 0 30px rgba(0,0,0,.6), inset 0 0 20px rgba(0,0,0,.4);
-    position: relative;
   }
-  #board .c0 { color: var(--c0); }
-  #board .c1 { color: var(--c1); }
-  #board .c2 { color: var(--c2); }
-  #board .c3 { color: var(--c3); }
-  #board .c4 { color: var(--c4); }
-  #board .empty { color: #2c2c44; }
+  #board .trow { display: flex; gap: 6px; height: 34px; margin-bottom: 2px; }
+  #board .cell {
+    width: 34px;
+    height: 34px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    flex: none;
+  }
+  #board .cell.c0 { background: var(--c0); }
+  #board .cell.c1 { background: var(--c1); }
+  #board .cell.c2 { background: var(--c2); }
+  #board .cell.c3 { background: var(--c3); }
+  #board .cell.c4 { background: var(--c4); }
+  #board .cell.empty { background: transparent; border: 1px dashed #3a3a5a; }
   #board .cursorbox {
-    outline: 2px solid #ffe14d; /* outline surrounds without shifting layout */
+    outline: 2px solid #ffe14d; /* surround the pair */
     outline-offset: 0;
-    border-radius: 3px;
-    background: transparent;
+    border-radius: 4px;
+    display: flex;
+    gap: 6px;
   }
-  #board .flash {
-    color: #fff !important;
-    animation: flashblink .1s linear infinite;
+  #board .entering {
+    transform: translateY(var(--reveal-offset, 0px));
+    will-change: transform;
   }
+  #board .flash { animation: flashblink .12s linear infinite; }
   @keyframes flashblink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: .25; }
+    0%, 100% { filter: brightness(1.7); }
+    50% { filter: brightness(.6); }
   }
   .legend {
     margin-top: 14px;
@@ -238,6 +248,8 @@ const DOT   = '\u00b7';   // middle dot for empty
 const BASE_INSERT_MS = 4000; // calm opening pace
 const MIN_INSERT_MS = 1200;  // fastest pace at high score
 const ENTRY_MS = 1600;       // new bottom row slides into view over this time
+const CELL_PX = 34;          // square cell size (simple shapes)
+const ROW_PITCH = 36;        // 34px cell + 2px gap per row
 
 // Row pace: slow at first, speeding up as your score climbs.
 function insertInterval() {
@@ -508,8 +520,8 @@ function insertRow() {
   }
   revealing = true;
   revealProgress = 0;
-  // The new arrangement may match on its own (like Tetris Attack).
-  if (!cascading && core.findMatches(grid).length > 0) {
+  // The new arrangement (above the entering row) may match on its own.
+  if (!cascading && visibleMatches().length > 0) {
     cascading = true;
     cascadeChain = 0;
     cascadePhase = 'find';
@@ -539,7 +551,7 @@ function updateCascade(dt) {
   if (!cascading) return;
   cascadeTimer += dt;
   if (cascadePhase === 'find') {
-    const matches = core.findMatches(grid);
+    const matches = visibleMatches();
     if (matches.length > 0) {
       cascadeChain++;
       combo = cascadeChain;
@@ -566,37 +578,45 @@ function updateCascade(dt) {
 }
 
 // ---------- Rendering ----------
-function cellHtml(x, y) {
-  let c = grid[y][x];
-  // Bottom row entering: not-yet-revealed cells appear as empty dots until the
-  // row has slid far enough to be fully visible.
-  if (y === ROWS - 1 && revealing && x >= Math.ceil(COLS * revealProgress)) {
-    c = null;
-  }
-  let cls = c === null ? 'empty' : 'c' + c;
+function cellDiv(x, y) {
+  const c = grid[y][x];
+  let cls = 'cell ' + (c === null ? 'empty' : 'c' + c);
   const isFlash = flashCells.some(f => f.x === x && f.y === y);
   if (isFlash) cls += ' flash';
-  return '<span class="' + cls + '">' + (c === null ? DOT : GLYPH) + '</span>';
+  return '<span class="' + cls + '"></span>';
 }
 
 function render() {
   let html = '';
   for (let y = 0; y < ROWS; y++) {
+    const entering = (y === ROWS - 1 && revealing);
+    // The entering row is a full unit sliding UP from below the play area.
+    html += '<div class="trow' + (entering ? ' entering' : '') + '"' +
+      (entering ? ' style="--reveal-offset:' + ((1 - revealProgress) * ROW_PITCH) + 'px"' : '') + '>';
     for (let x = 0; x < COLS; x++) {
       if (y === cursor.y && x === cursor.x) {
         // Surround the selected pair with a cursor box (not a filled overlay).
-        html += '<span class="cursorbox">' + cellHtml(x, y) + ' ' + cellHtml(x + 1, y) + '</span> ';
+        html += '<span class="cursorbox">' + cellDiv(x, y) + cellDiv(x + 1, y) + '</span>';
         x++; // pair already emitted; skip the second cursor cell
         continue;
       }
-      html += cellHtml(x, y) + ' ';
+      html += cellDiv(x, y);
     }
-    html += '\n';
+    html += '</div>';
   }
   boardEl.innerHTML = html;
   scoreEl.textContent = String(score);
   comboEl.textContent = String(combo);
   pauseTag.classList.toggle('show', paused && !gameOver);
+}
+
+// Matches count only on rows that are fully visible — the entering bottom row
+// does not resolve until it has slid fully into view.
+function visibleMatches() {
+  if (revealing && revealProgress < 1) {
+    return core.findMatches(grid).filter(f => f.y !== ROWS - 1);
+  }
+  return core.findMatches(grid);
 }
 
 // ---------- Main loop ----------
@@ -617,7 +637,7 @@ function frame() {
     updateCascade(dt);
     // Auto-resolve any standing match (vertical or horizontal) even without
     // player input — a completed run never sits uncleared on the board.
-    if (!cascading && core.findMatches(grid).length > 0) {
+    if (!cascading && visibleMatches().length > 0) {
       cascading = true;
       cascadeChain = 0;
       cascadePhase = 'find';

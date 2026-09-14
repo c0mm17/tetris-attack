@@ -1,8 +1,8 @@
 # Tetris Attack (ASCII)
 
-An ASCII-art, browser-playable homage to **Tetris Attack** (a.k.a. Panel de
-Pon): a 6x12 field of colored panels where you swap adjacent blocks sideways to
-line up 3+ same-color blocks in a row or column.
+A browser-playable homage to **Tetris Attack** (a.k.a. Panel de Pon): a 6x12
+field of colored panels rendered as simple colored squares, where you swap two
+side-by-side cells to line up 3+ same-color blocks in a row or column.
 
 ## Play it
 
@@ -38,15 +38,16 @@ Or locally:
   same-color blocks in a single row OR a single column clears.
 - After a clear, blocks above fall down; the fall can create **new matches**,
   which clear again — each step is a **chain/combo**, multiplying the score.
-- New rows slide in at the **bottom** and the whole field rises slowly; each
-  fresh row is only partially visible at first as it slides up, and the bottom
-  row cannot be selected until it is fully visible. Rows speed up as your
-  score climbs (~4 s down to ~1.2 s). If a column's pile reaches the top row,
-  it's **game over** (top-out).
+- The play field is made of **simple colored squares**. New rows slide in at
+  the **bottom** and the whole field rises slowly: each fresh row enters as a
+  complete unit from below and only becomes active (matching + selectable)
+  once it has slid fully into view. Rows speed up as your score climbs (~4 s
+  down to ~1.2 s). If a column's pile reaches the top row, it's **game over**
+  (top-out).
 
 ## Structure
 
-- `index.html` — the playable page (ASCII board, HUD, controls, game loop).
+- `index.html` — the playable page (simple-shape board, HUD, controls, game loop).
 - `game-core.js` — pure logic module (ESM): board, swap, match detection,
   cascade/gravity, row insertion, top-out, seeded RNG.
 - `tests/` — Node test suites (`node --test tests/spec.js tests/smoke.js tests/deepcheck.js`):
