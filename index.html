@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tetris Attack (ASCII)</title>
-<!-- v8 build: simple-shape cells, new row slides UP as one unit, matches and
-     cursor unlock only once the row is fully visible -->
+<!-- v9 build: whole field scrolls UP smoothly on row entry, cursor locked off
+     entering row until fully in the play area -->
 <style>
   :root {
     --bg: #0a0a14;
@@ -520,6 +520,8 @@ function insertRow() {
   }
   revealing = true;
   revealProgress = 0;
+  // Never park the cursor on the row that is still entering.
+  if (cursor.y === ROWS - 1) cursor.y = ROWS - 2;
   // The new arrangement (above the entering row) may match on its own.
   if (!cascading && visibleMatches().length > 0) {
     cascading = true;
@@ -587,12 +589,12 @@ function cellDiv(x, y) {
 }
 
 function render() {
+  // While a bottom row is entering, the WHOLE field slides UP smoothly (every
+  // cell moves up one row together with the incoming row) instead of jumping.
+  const rise = (revealing && revealProgress < 1) ? (1 - revealProgress) * ROW_PITCH : 0;
   let html = '';
   for (let y = 0; y < ROWS; y++) {
-    const entering = (y === ROWS - 1 && revealing);
-    // The entering row is a full unit sliding UP from below the play area.
-    html += '<div class="trow' + (entering ? ' entering' : '') + '"' +
-      (entering ? ' style="--reveal-offset:' + ((1 - revealProgress) * ROW_PITCH) + 'px"' : '') + '>';
+    html += '<div class="trow"' + (rise > 0 ? ' style="transform: translateY(' + rise + 'px)"' : '') + '>';
     for (let x = 0; x < COLS; x++) {
       if (y === cursor.y && x === cursor.x) {
         // Surround the selected pair with a cursor box (not a filled overlay).

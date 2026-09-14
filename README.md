@@ -39,11 +39,13 @@ Or locally:
 - After a clear, blocks above fall down; the fall can create **new matches**,
   which clear again — each step is a **chain/combo**, multiplying the score.
 - The play field is made of **simple colored squares**. New rows slide in at
-  the **bottom** and the whole field rises slowly: each fresh row enters as a
-  complete unit from below and only becomes active (matching + selectable)
-  once it has slid fully into view. Rows speed up as your score climbs (~4 s
-  down to ~1.2 s). If a column's pile reaches the top row, it's **game over**
-  (top-out).
+  the **bottom** and the whole field scrolls UP smoothly as they enter — every
+  existing cell rises with the incoming row rather than jumping one row. The
+  incoming row only becomes active (matching + selectable) once fully in the
+  play area, and the cursor cannot move onto it before then (it is moved off
+  the entering row automatically if it was sitting there). Rows speed up as
+  your score climbs (~4 s down to ~1.2 s). If a column's pile reaches the top
+  row, it's **game over** (top-out).
 
 ## Structure
 
