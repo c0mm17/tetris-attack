@@ -105,10 +105,12 @@
   #board .c3 { color: var(--c3); }
   #board .c4 { color: var(--c4); }
   #board .empty { color: #2c2c44; }
-  #board .cursor {
-    background: #ffff00;
-    color: #000 !important;
-    border-radius: 2px;
+  #board .cursorbox {
+    border: 2px solid #ffe14d;
+    border-radius: 4px;
+    background: transparent;
+    padding: 0 2px;
+    display: inline-block;
   }
   #board .flash {
     color: #fff !important;
@@ -511,11 +513,13 @@ function insertRow() {
 }
 
 function trySwap() {
-  if (paused || gameOver || cascading) return;
+  // Swaps are always allowed — the ongoing auto-resolve cascade must not
+  // block player input.
+  if (paused || gameOver) return;
   const ok = core.swapPair(grid, cursor.x, cursor.y);
   if (!ok) return;
   sfxSwap();
-  // Begin the cascade resolution.
+  // Restart the cascade resolution on the new arrangement.
   cascading = true;
   cascadeChain = 0;
   cascadePhase = 'find';
@@ -554,24 +558,25 @@ function updateCascade(dt) {
 }
 
 // ---------- Rendering ----------
+function cellHtml(x, y) {
+  const c = grid[y][x];
+  let cls = c === null ? 'empty' : 'c' + c;
+  const isFlash = flashCells.some(f => f.x === x && f.y === y);
+  if (isFlash) cls += ' flash';
+  return '<span class="' + cls + '">' + (c === null ? DOT : GLYPH) + '</span>';
+}
+
 function render() {
   let html = '';
   for (let y = 0; y < ROWS; y++) {
     for (let x = 0; x < COLS; x++) {
-      const c = grid[y][x];
-      const isCursor = (y === cursor.y && (x === cursor.x || x === cursor.x + 1));
-      const isFlash = flashCells.some(f => f.x === x && f.y === y);
-      let cls, glyph;
-      if (c === null) {
-        cls = 'empty';
-        glyph = DOT;
-      } else {
-        cls = 'c' + c;
-        glyph = GLYPH;
+      if (y === cursor.y && x === cursor.x) {
+        // Surround the selected pair with a cursor box (not a filled overlay).
+        html += '<span class="cursorbox">' + cellHtml(x, y) + ' ' + cellHtml(x + 1, y) + '</span> ';
+        x++; // pair already emitted; skip the second cursor cell
+        continue;
       }
-      if (isFlash) cls += ' flash';
-      if (isCursor) cls += ' cursor';
-      html += '<span class="' + cls + '">' + glyph + '</span> ';
+      html += cellHtml(x, y) + ' ';
     }
     html += '\n';
   }
