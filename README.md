@@ -1,6 +1,6 @@
 # Tetris Attack (ASCII)
 
-A browser-playable homage to **Tetris Attack** (a.k.a. Panel de Pon): a 6x12
+A browser-playable homage to **Tetris Attack** (a.k.a. Panel de Pon): a 6x18
 field of colored panels rendered as simple colored squares, where you swap two
 side-by-side cells to line up 3+ same-color blocks in a row or column.
 
@@ -43,9 +43,11 @@ Or locally:
   existing cell rises with the incoming row rather than jumping one row. The
   incoming row only becomes active (matching + selectable) once fully in the
   play area, and the cursor cannot move onto it before then (it is moved off
-  the entering row automatically if it was sitting there). Rows speed up as
-  your score climbs (~4 s down to ~1.2 s). If a column's pile reaches the top
-  row, it's **game over** (top-out).
+  the entering row automatically if it was sitting there). The field is **18
+  rows** tall (50% taller than before). Rows speed up gently as your score
+  climbs — a much slower acceleration rate (~4 s at the start, easing down
+  gradually). If a column's pile reaches the top row, it's **game over**
+  (top-out).
 
 ## Structure
 

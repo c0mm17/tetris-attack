@@ -4,8 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tetris Attack (ASCII)</title>
-<!-- v9 build: whole field scrolls UP smoothly on row entry, cursor locked off
-     entering row until fully in the play area -->
+<!-- v10 build: 18 rows (12 + 50%), gentler score-based acceleration -->
 <style>
   :root {
     --bg: #0a0a14;
@@ -93,7 +92,7 @@
   #board {
     position: relative;
     width: 246px;                 /* 6 cells * 34px + gaps + padding */
-    height: 444px;                /* 12 rows * 36px + padding */
+    height: 660px;                /* 18 rows * 36px + padding */
     overflow: hidden;
     background: var(--panel);
     border: 2px solid #2a2a44;
@@ -240,7 +239,7 @@
 import * as core from './game-core.js';
 
 // ---------- Constants ----------
-const COLS = 6, ROWS = 12;
+const COLS = 6, ROWS = 18;
 const FLASH_MS = 200;
 const BASE_POINTS = 10;
 const GLYPH = '\u2588';   // full block
@@ -251,9 +250,10 @@ const ENTRY_MS = 1600;       // new bottom row slides into view over this time
 const CELL_PX = 34;          // square cell size (simple shapes)
 const ROW_PITCH = 36;        // 34px cell + 2px gap per row
 
-// Row pace: slow at first, speeding up as your score climbs.
+// Row pace: slow at first, speeding up gently as your score climbs (reduced
+// speed-up rate so the game stays relaxed longer).
 function insertInterval() {
-  return Math.max(MIN_INSERT_MS, BASE_INSERT_MS - score * 12);
+  return Math.max(MIN_INSERT_MS, BASE_INSERT_MS - score * 4);
 }
 
 // ---------- DOM ----------
