@@ -69,6 +69,20 @@ function compactAbove(grid, x, y) {
   }
 }
 
+// Compact one column fully downward (blocks fall to the lowest empties),
+// preserving order. Removes "floating" blocks.
+function gravityCol(grid, x) {
+  const rows = grid.length;
+  const stack = [];
+  for (let y = rows - 1; y >= 0; y--) {
+    if (grid[y][x] !== null) stack.push(grid[y][x]);
+  }
+  for (let y = rows - 1; y >= 0; y--) {
+    const idx = rows - 1 - y;
+    grid[y][x] = idx < stack.length ? stack[idx] : null;
+  }
+}
+
 // Swap the contents of two side-by-side cells at (x, y) and (x+1, y). Each
 // may be a colour block or an empty space (block<->block or block<->space).
 // Any cell that becomes empty gets the blocks above it falling down to fill
@@ -82,8 +96,13 @@ export function swapPair(grid, x, y) {
   if (a !== null && a === b) return false;      // identical blocks: no-op
   grid[y][x + 1] = a;
   grid[y][x] = b;
-  if (b === null) compactAbove(grid, x, y);
-  if (a === null) compactAbove(grid, x + 1, y);
+  // Any empty cell involved: compact both affected columns fully so floating
+  // blocks fall immediately (settling onto the pile / bottom). A colour moved
+  // into an empty space also falls to the lowest empty of its new column.
+  if (a === null || b === null) {
+    gravityCol(grid, x);
+    gravityCol(grid, x + 1);
+  }
   return true;
 }
 

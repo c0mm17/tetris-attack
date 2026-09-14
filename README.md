@@ -31,14 +31,16 @@ Or locally:
 
 - **Pair cursor, horizontal swap** — the cursor surrounds two side-by-side
   cells; pressing swap exchanges their contents (colour&harr;colour or
-  colour&harr;space). If a cell becomes empty, the blocks above it fall down
-  to fill the gap.
+  colour&harr;space). Any cell that becomes empty causes the affected columns
+  to compact fully — floating blocks fall immediately (settling onto the pile
+  or the bottom of the column).
 - **Matches clear horizontally OR vertically**: any contiguous run of 3+
   same-color blocks in a single row OR a single column clears.
 - After a clear, blocks above fall down; the fall can create **new matches**,
   which clear again — each step is a **chain/combo**, multiplying the score.
-- A new row of panels falls in every ~2.5 s. If a column's pile reaches the top
-  row, it's **game over** (top-out).
+- Rows start falling slowly (~4 s) and accelerate as your score climbs (down
+  to ~1.2 s). If a column's pile reaches the top row, it's **game over**
+  (top-out).
 
 ## Structure
 
@@ -54,8 +56,8 @@ Or locally:
 
 ## Audio
 
-Music is synthesized live with the Web Audio API in **Happy Hardcore** style
-at 165 BPM: four-on-the-floor kick, offbeat rave bass stab, closed hi-hats,
-bright detuned-saw lead riff with hoover pitch-bend stabs, plus game SFX
-(swap blip, ascending clear stabs, combo rises with chain level, descending
-game-over tail). No audio files; everything is generated in the browser.
+Music is synthesized live with the Web Audio API as a **relaxing retro
+chiptune** at 96 BPM: a soft sine kick on the beat, a gentle sine bass on the
+eighths, and a triangle-wave music-box melody, plus game SFX (swap blip,
+ascending clear stabs, combo rises with chain level, descending game-over
+tail). No audio files; everything is generated in the browser.

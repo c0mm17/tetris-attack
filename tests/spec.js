@@ -83,22 +83,25 @@ test('swapPair swaps two colours', () => {
   assert.equal(core.getBlock(g, 3, 3), 0);
 });
 
-test('swapPair colour with space: block fills space, above falls', () => {
+test('swapPair colour with space: colour settles, blocks fall', () => {
   const g = board();
   core.setBlock(g, 2, 3, 0); // colour at left cell
   core.setBlock(g, 2, 2, 1); // block above the left cell
   // right cell (3,3) is empty
   assert.equal(core.swapPair(g, 2, 3), true);
-  assert.equal(core.getBlock(g, 3, 3), 0, 'colour moved into space');
-  assert.equal(core.getBlock(g, 2, 3), 1, 'above block fell into the gap');
+  assert.equal(core.getBlock(g, 3, 11), 0, 'colour falls to the bottom of its new column');
+  assert.equal(core.getBlock(g, 2, 11), 1, 'above block falls to the bottom of the vacated column');
+  assert.equal(core.getBlock(g, 2, 3), null);
   assert.equal(core.getBlock(g, 2, 2), null);
+  assert.equal(core.getBlock(g, 3, 3), null);
 });
 
-test('swapPair space with colour: colour moves left', () => {
+test('swapPair space with colour: colour moves left and settles', () => {
   const g = board();
   core.setBlock(g, 3, 3, 0); // colour at right cell only
   assert.equal(core.swapPair(g, 2, 3), true);
-  assert.equal(core.getBlock(g, 2, 3), 0, 'colour moved left');
+  assert.equal(core.getBlock(g, 2, 11), 0, 'colour moved left and fell to bottom');
+  assert.equal(core.getBlock(g, 2, 3), null);
   assert.equal(core.getBlock(g, 3, 3), null);
 });
 

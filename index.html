@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tetris Attack (ASCII)</title>
-<!-- v5 build: selection cursor is a transparent border BOX around the two
-     selected cells — cell colours stay visible; old filled-background cursor removed -->
+<!-- v6 build: relaxing retro music, rows slow-then-fast, outline cursor (no
+     layout shift), floating blocks fall on empty-space swaps -->
 <style>
   :root {
     --bg: #0a0a14;
@@ -108,11 +108,10 @@
   #board .c4 { color: var(--c4); }
   #board .empty { color: #2c2c44; }
   #board .cursorbox {
-    border: 2px solid #ffe14d;
-    border-radius: 4px;
+    outline: 2px solid #ffe14d; /* outline surrounds without shifting layout */
+    outline-offset: 0;
+    border-radius: 3px;
     background: transparent;
-    padding: 0 2px;
-    display: inline-block;
   }
   #board .flash {
     color: #fff !important;
@@ -187,7 +186,7 @@
 </head>
 <body>
   <h1>Tetris Attack (ASCII)</h1>
-  <div class="subtitle">Happy Hardcore</div>
+  <div class="subtitle">Relaxing Retro</div>
 
   <div class="hud">
     <div class="stat" id="scoreStat">
@@ -216,7 +215,7 @@
     a colour with a colour, or a colour with a space (blocks above the new empty space fall down).
     Match <span class="hl">3+ same-color blocks in a single ROW or COLUMN</span> to clear them;
     falling blocks can chain into new matches for bonus points.
-    A new row drops in every ~2.5s &mdash; if the board reaches the <span class="hl">top row</span>, it's game over.
+    Rows start slowly and speed up as your score climbs &mdash; if the board reaches the <span class="hl">top row</span>, it's game over.
   </div>
 
   <div id="overlay" class="hidden">
@@ -230,11 +229,17 @@ import * as core from './game-core.js';
 
 // ---------- Constants ----------
 const COLS = 6, ROWS = 12;
-const INSERT_MS = 2500;
 const FLASH_MS = 200;
 const BASE_POINTS = 10;
 const GLYPH = '\u2588';   // full block
 const DOT   = '\u00b7';   // middle dot for empty
+const BASE_INSERT_MS = 4000; // calm opening pace
+const MIN_INSERT_MS = 1200;  // fastest pace at high score
+
+// Row pace: slow at first, speeding up as your score climbs.
+function insertInterval() {
+  return Math.max(MIN_INSERT_MS, BASE_INSERT_MS - score * 12);
+}
 
 // ---------- DOM ----------
 const boardEl   = document.getElementById('board');
@@ -251,25 +256,25 @@ let paused, gameOver, rng, seed;
 let cascading, cascadeChain, cascadePhase, cascadeTimer, flashCells;
 let lastFrameTime, nextInsertTime;
 
-// ---------- Audio engine (Happy Hardcore, 165 BPM) ----------
+// ---------- Audio engine (relaxing retro chiptune, 96 BPM) ----------
 let audioCtx = null, masterGain = null, musicGain = null, sfxGain = null;
 let muted = false, musicStarted = false, schedulerTimer = null;
 let nextNoteTime = 0, step = 0;
 let noiseBuffer = null;
 
-const BPM = 165;
-const SIXTEENTH = 60 / BPM / 4; // seconds per 16th note
+const BPM = 96;               // relaxed retro tempo
+const EIGHTH = 60 / BPM / 2;  // seconds per 8th note
 
-// Lead riff: 4 bars x 8 eighth-notes, semitone offsets from A4 (440 Hz).
-// Bars 1-2: A major arpeggio. Bars 3-4: E major arpeggio (up a fifth).
+// Gentle music-box melody (triangle), semitone offsets from C4 (261.63 Hz).
 const LEAD = [
-  [0, 4, 7, 12, 7, 4, 0, 4],
-  [0, 4, 7, 12, 7, 4, 0, 4],
-  [7, 11, 14, 19, 14, 11, 7, 11],
-  [7, 11, 14, 19, 14, 11, 7, 11],
+  [0, 3, 7, 10, 12, 10, 7, 3],
+  [-5, 0, 3, 7, 10, 7, 3, 0],
+  [0, 0, -2, 0, 3, 0, 7, 5],
+  [-5, 0, 3, 7, 10, 7, 3, 0],
 ];
-// Bass root per bar (Hz), played on the offbeat 8ths.
-const BASS_ROOT = [55, 55, 65.41, 49];
+const LEAD_ROOT = 261.63; // C4
+// Soft bass root per bar (Hz), gentle sine under the melody.
+const BASS_ROOT = [110, 130.81, 98, 130.81];
 
 function initAudio() {
   if (audioCtx) return;
@@ -280,7 +285,7 @@ function initAudio() {
   masterGain.gain.value = muted ? 0 : 1;
   masterGain.connect(audioCtx.destination);
   musicGain = audioCtx.createGain();
-  musicGain.gain.value = 0.5;
+  musicGain.gain.value = 0.35;
   musicGain.connect(masterGain);
   sfxGain = audioCtx.createGain();
   sfxGain.gain.value = 0.8;
@@ -306,48 +311,43 @@ function stopMusic() {
 
 function schedule() {
   if (!audioCtx) return;
-  while (nextNoteTime < audioCtx.currentTime + 0.12) {
+  while (nextNoteTime < audioCtx.currentTime + 0.22) {
     scheduleStep(step, nextNoteTime);
-    nextNoteTime += SIXTEENTH;
-    step = (step + 1) % 64; // 4 bars x 16 sixteenth-notes
+    nextNoteTime += EIGHTH;
+    step = (step + 1) % 32; // 4 bars x 8 eighth-notes
   }
 }
 
 function scheduleStep(s, t) {
-  const bar = Math.floor(s / 16);
-  const pos = s % 16;
-  if (s % 4 === 0) playKick(t);                 // four-on-the-floor kick
-  if (s % 4 === 2) playBass(t, BASS_ROOT[bar]); // offbeat bass stab
-  if (s % 2 === 0) playHat(t);                  // closed hi-hat every 8th
-  if (s % 2 === 0) {                            // bright lead on 8ths
-    const eighth = pos / 2;
-    const semis = LEAD[bar][eighth];
-    if (semis !== null) playLead(t, semis);
-  }
-  if (s === 48) playHoover(t);                  // hoover on bar 4
+  const bar = Math.floor(s / 8);
+  const pos = s % 8;
+  if (s % 4 === 0) playKick(t);                 // soft beat on the fours
+  if (s % 2 === 0) playBass(t, BASS_ROOT[bar]); // gentle bass every 8th
+  const semis = LEAD[bar][pos];                 // relaxing melody on eighths
+  if (semis !== null) playLead(t, semis);
 }
 
 function playKick(t) {
   const osc = audioCtx.createOscillator();
   const g = audioCtx.createGain();
   osc.type = 'sine';
-  osc.frequency.setValueAtTime(150, t);
-  osc.frequency.exponentialRampToValueAtTime(40, t + 0.1);
-  g.gain.setValueAtTime(1.0, t);
-  g.gain.exponentialRampToValueAtTime(0.001, t + 0.15);
+  osc.frequency.setValueAtTime(100, t);
+  osc.frequency.exponentialRampToValueAtTime(40, t + 0.08);
+  g.gain.setValueAtTime(0.4, t);
+  g.gain.exponentialRampToValueAtTime(0.001, t + 0.14);
   osc.connect(g); g.connect(musicGain);
-  osc.start(t); osc.stop(t + 0.16);
+  osc.start(t); osc.stop(t + 0.15);
 }
 
 function playBass(t, freq) {
   const osc = audioCtx.createOscillator();
   const g = audioCtx.createGain();
-  osc.type = 'sawtooth';
+  osc.type = 'sine';
   osc.frequency.setValueAtTime(freq, t);
-  g.gain.setValueAtTime(0.5, t);
-  g.gain.exponentialRampToValueAtTime(0.001, t + 0.18);
+  g.gain.setValueAtTime(0.22, t);
+  g.gain.exponentialRampToValueAtTime(0.001, t + 0.22);
   osc.connect(g); g.connect(musicGain);
-  osc.start(t); osc.stop(t + 0.2);
+  osc.start(t); osc.stop(t + 0.24);
 }
 
 function getNoiseBuffer() {
@@ -373,19 +373,16 @@ function playHat(t) {
 }
 
 function playLead(t, semis) {
-  const freq = 440 * Math.pow(2, semis / 12);
-  for (const det of [-8, 8]) { // detuned saw pair for width
-    const osc = audioCtx.createOscillator();
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(freq, t);
-    osc.detune.value = det;
-    const g = audioCtx.createGain();
-    g.gain.setValueAtTime(0.0, t);
-    g.gain.linearRampToValueAtTime(0.22, t + 0.02);
-    g.gain.exponentialRampToValueAtTime(0.001, t + 0.15);
-    osc.connect(g); g.connect(musicGain);
-    osc.start(t); osc.stop(t + 0.16);
-  }
+  const freq = LEAD_ROOT * Math.pow(2, semis / 12);
+  const osc = audioCtx.createOscillator();
+  osc.type = 'triangle';
+  osc.frequency.setValueAtTime(freq, t);
+  const g = audioCtx.createGain();
+  g.gain.setValueAtTime(0.0, t);
+  g.gain.linearRampToValueAtTime(0.16, t + 0.06);
+  g.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+  osc.connect(g); g.connect(musicGain);
+  osc.start(t); osc.stop(t + 0.34);
 }
 
 function playHoover(t) {
@@ -479,7 +476,7 @@ function restart() {
   cascadeTimer = 0;
   flashCells = [];
   lastFrameTime = performance.now();
-  nextInsertTime = lastFrameTime + INSERT_MS;
+  nextInsertTime = lastFrameTime + insertInterval();
   overlay.classList.add('hidden');
   pauseTag.classList.remove('show');
   if (audioCtx && !musicStarted) ensureAudio();
@@ -596,7 +593,7 @@ function frame() {
   if (!paused && !gameOver) {
     if (now >= nextInsertTime) {
       insertRow();
-      if (!gameOver) nextInsertTime = now + INSERT_MS;
+      if (!gameOver) nextInsertTime = now + insertInterval();
     }
     updateCascade(dt);
     // Auto-resolve any standing match (vertical or horizontal) even without
