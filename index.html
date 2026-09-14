@@ -591,9 +591,17 @@ function frame() {
       if (!gameOver) nextInsertTime = now + INSERT_MS;
     }
     updateCascade(dt);
+    // Auto-resolve any standing match (vertical or horizontal) even without
+    // player input — a completed run never sits uncleared on the board.
+    if (!cascading && core.findMatches(grid).length > 0) {
+      cascading = true;
+      cascadeChain = 0;
+      cascadePhase = 'find';
+      cascadeTimer = 0;
+      flashCells = [];
+    }
   }
   render();
-  requestAnimationFrame(frame);
 }
 
 // ---------- Input ----------
