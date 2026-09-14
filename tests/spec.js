@@ -194,23 +194,23 @@ test('cascade: falling blocks create a chain (combo)', () => {
   assert.ok(r.totalCleared >= 6, 'cleared both runs');
 });
 
-test('insertTopRow stacks new blocks atop column piles', () => {
+test('insertBottomRow adds a row at the bottom; pile moves up', () => {
   const g = board();
-  core.setBlock(g, 0, 11, 0); // col 0 has height 1 (pile at bottom)
-  const ok = core.insertTopRow(g, [1, 2, 3, 4, 0, 1]);
-  assert.equal(ok, true, 'all six blocks placed');
-  assert.equal(core.getBlock(g, 0, 10), 1, 'new block sits atop the pile');
-  assert.equal(core.getBlock(g, 0, 11), 0, 'old bottom block stays');
-  assert.equal(core.getBlock(g, 1, 11), 2, 'empty column receives block at bottom');
-  assert.equal(core.getBlock(g, 1, 10), null);
+  core.setBlock(g, 0, 11, 0); // one block at the bottom of column 0
+  const ok = core.insertBottomRow(g, [1, 2, 3, 4, 0, 1]);
+  assert.equal(ok, true, 'row placed');
+  assert.equal(core.getBlock(g, 0, 11), 1, 'new block sits at the bottom');
+  assert.equal(core.getBlock(g, 0, 10), 0, 'old block moved up one row');
+  assert.equal(core.getBlock(g, 1, 11), 2);
+  assert.equal(core.getBlock(g, 2, 11), 3);
 });
 
-test('insertTopRow rejects full column (top-out)', () => {
+test('insertBottomRow rejects full column (top-out)', () => {
   const g = board();
   for (let y = 0; y < 12; y++) core.setBlock(g, 3, y, 0);
-  const ok = core.insertTopRow(g, [0, 0, 0, 0, 0, 0]);
-  assert.equal(ok, false, 'full column rejects insertion');
-  assert.equal(core.isTopOut(g), true, 'full column means top-out');
+  const ok = core.insertBottomRow(g, [0, 0, 0, 0, 0, 0]);
+  assert.equal(ok, false, 'full column cannot accept another row');
+  assert.equal(core.isTopOut(g), true);
 });
 
 test('isTopOut triggers when top row occupied', () => {
@@ -241,7 +241,7 @@ test('stress: random play eventually tops out, score accumulates', () => {
     steps++;
     if (steps % 4 === 0) {
       const colors = Array.from({ length: COLS }, () => Math.floor(rng() * 5));
-      core.insertTopRow(g, colors);
+      core.insertBottomRow(g, colors);
     }
     const x = Math.floor(rng() * (COLS - 1));
     const y = Math.floor(rng() * ROWS);

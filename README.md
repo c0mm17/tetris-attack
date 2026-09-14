@@ -38,9 +38,11 @@ Or locally:
   same-color blocks in a single row OR a single column clears.
 - After a clear, blocks above fall down; the fall can create **new matches**,
   which clear again — each step is a **chain/combo**, multiplying the score.
-- Rows start falling slowly (~4 s) and accelerate as your score climbs (down
-  to ~1.2 s). If a column's pile reaches the top row, it's **game over**
-  (top-out).
+- New rows slide in at the **bottom** and the whole field rises slowly; each
+  fresh row is only partially visible at first as it slides up, and the bottom
+  row cannot be selected until it is fully visible. Rows speed up as your
+  score climbs (~4 s down to ~1.2 s). If a column's pile reaches the top row,
+  it's **game over** (top-out).
 
 ## Structure
 

@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tetris Attack (ASCII)</title>
-<!-- v6 build: relaxing retro music, rows slow-then-fast, outline cursor (no
-     layout shift), floating blocks fall on empty-space swaps -->
+<!-- v7 build: rows slide in at the bottom (field rises), partial reveal of the
+     new row, bottom row locked until fully visible -->
 <style>
   :root {
     --bg: #0a0a14;
@@ -215,7 +215,9 @@
     a colour with a colour, or a colour with a space (blocks above the new empty space fall down).
     Match <span class="hl">3+ same-color blocks in a single ROW or COLUMN</span> to clear them;
     falling blocks can chain into new matches for bonus points.
-    Rows start slowly and speed up as your score climbs &mdash; if the board reaches the <span class="hl">top row</span>, it's game over.
+    Rows slide in at the <span class="hl">bottom</span> and the field rises slowly — the bottom row
+    can't be selected until it is fully visible. Rows speed up as your score climbs &mdash; if the
+    board reaches the <span class="hl">top row</span>, it's game over.
   </div>
 
   <div id="overlay" class="hidden">
@@ -235,6 +237,7 @@ const GLYPH = '\u2588';   // full block
 const DOT   = '\u00b7';   // middle dot for empty
 const BASE_INSERT_MS = 4000; // calm opening pace
 const MIN_INSERT_MS = 1200;  // fastest pace at high score
+const ENTRY_MS = 1600;       // new bottom row slides into view over this time
 
 // Row pace: slow at first, speeding up as your score climbs.
 function insertInterval() {
@@ -254,7 +257,7 @@ const pauseTag  = document.getElementById('pauseTag');
 let grid, cursor, score, combo;
 let paused, gameOver, rng, seed;
 let cascading, cascadeChain, cascadePhase, cascadeTimer, flashCells;
-let lastFrameTime, nextInsertTime;
+let lastFrameTime, nextInsertTime, revealing, revealProgress;
 
 // ---------- Audio engine (relaxing retro chiptune, 96 BPM) ----------
 let audioCtx = null, masterGain = null, musicGain = null, sfxGain = null;
@@ -475,6 +478,8 @@ function restart() {
   cascadePhase = 'idle';
   cascadeTimer = 0;
   flashCells = [];
+  revealing = false;
+  revealProgress = 1;
   lastFrameTime = performance.now();
   nextInsertTime = lastFrameTime + insertInterval();
   overlay.classList.add('hidden');
@@ -493,15 +498,17 @@ function doGameOver() {
 }
 
 function insertRow() {
+  // A new row slides in at the BOTTOM; the whole field rises slowly.
   const colors = [];
   for (let x = 0; x < COLS; x++) colors.push(Math.floor(rng() * 5));
-  const ok = core.insertTopRow(grid, colors);
+  const ok = core.insertBottomRow(grid, colors);
   if (!ok || core.isTopOut(grid)) {
     doGameOver();
     return;
   }
-  // Falling blocks can complete a match on their own (like Tetris Attack).
-  // If the new arrangement matches, kick off an automatic cascade.
+  revealing = true;
+  revealProgress = 0;
+  // The new arrangement may match on its own (like Tetris Attack).
   if (!cascading && core.findMatches(grid).length > 0) {
     cascading = true;
     cascadeChain = 0;
@@ -515,6 +522,8 @@ function trySwap() {
   // Swaps are always allowed — the ongoing auto-resolve cascade must not
   // block player input.
   if (paused || gameOver) return;
+  // The bottom row is locked until it is fully visible.
+  if (cursor.y === ROWS - 1 && revealing && revealProgress < 1) return;
   const ok = core.swapPair(grid, cursor.x, cursor.y);
   if (!ok) return;
   sfxSwap();
@@ -558,7 +567,12 @@ function updateCascade(dt) {
 
 // ---------- Rendering ----------
 function cellHtml(x, y) {
-  const c = grid[y][x];
+  let c = grid[y][x];
+  // Bottom row entering: not-yet-revealed cells appear as empty dots until the
+  // row has slid far enough to be fully visible.
+  if (y === ROWS - 1 && revealing && x >= Math.ceil(COLS * revealProgress)) {
+    c = null;
+  }
   let cls = c === null ? 'empty' : 'c' + c;
   const isFlash = flashCells.some(f => f.x === x && f.y === y);
   if (isFlash) cls += ' flash';
@@ -595,6 +609,11 @@ function frame() {
       insertRow();
       if (!gameOver) nextInsertTime = now + insertInterval();
     }
+    // The entering bottom row slides up into view slowly.
+    if (revealing) {
+      revealProgress = Math.min(1, revealProgress + dt / ENTRY_MS);
+      if (revealProgress >= 1) revealing = false;
+    }
     updateCascade(dt);
     // Auto-resolve any standing match (vertical or horizontal) even without
     // player input — a completed run never sits uncleared on the board.
@@ -613,8 +632,12 @@ function frame() {
 function moveCursor(dx, dy) {
   if (paused || gameOver) return;
   // The cursor spans two side-by-side cells, so x is clamped to COLS-2.
-  cursor.x = Math.max(0, Math.min(COLS - 2, cursor.x + dx));
-  cursor.y = Math.max(0, Math.min(ROWS - 1, cursor.y + dy));
+  let nx = Math.max(0, Math.min(COLS - 2, cursor.x + dx));
+  let ny = Math.max(0, Math.min(ROWS - 1, cursor.y + dy));
+  // The bottom row can only be selected once it has slid up to full visibility.
+  if (ny === ROWS - 1 && revealing && revealProgress < 1) ny = ROWS - 2;
+  cursor.x = nx;
+  cursor.y = ny;
 }
 
 window.addEventListener('keydown', (e) => {

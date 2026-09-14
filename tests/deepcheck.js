@@ -17,7 +17,7 @@ function runSeed(seed, maxSteps) {
     steps++;
     if (steps % 3 === 0) {
       const colors = Array.from({ length: COLS }, () => Math.floor(rng() * 5));
-      core.insertTopRow(grid, colors);
+      core.insertBottomRow(grid, colors);
     }
     const x = Math.floor(rng() * (COLS - 1));
     const y = Math.floor(rng() * ROWS);

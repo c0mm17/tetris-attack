@@ -11,7 +11,7 @@ test('game-core exports the full API', () => {
   const fns = [
     'createBoard', 'setBlock', 'getBlock', 'swapHorizontal', 'swapPair',
     'findMatches', 'clearCells', 'gravity', 'resolveAll',
-    'insertTopRow', 'isTopOut', 'createRng',
+    'insertTopRow', 'insertBottomRow', 'isTopOut', 'createRng',
   ];
   for (const n of fns) {
     assert.equal(typeof core[n], 'function', `${n} is a function`);

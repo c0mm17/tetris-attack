@@ -231,6 +231,31 @@ export function insertTopRow(grid, colors) {
   return true;
 }
 
+// Add a new row of blocks at the BOTTOM of the field: each new block becomes
+// the base of its column's pile, and the existing pile shifts UP one row (the
+// whole field rises). If a column would exceed the board height, return false
+// (top-out).
+export function insertBottomRow(grid, colors) {
+  const rows = grid.length;
+  const cols = rows > 0 ? grid[0].length : 0;
+  for (let x = 0; x < cols; x++) {
+    // Rebuild the column: the new block at the bottom, existing blocks above
+    // it in their original order (so every occupied row rises by one).
+    const stack = [];
+    const color = (x < colors.length ? colors[x] : null);
+    if (color !== null) stack.push(color);
+    for (let y = rows - 1; y >= 0; y--) {
+      if (grid[y][x] !== null) stack.push(grid[y][x]);
+    }
+    if (stack.length > rows) return false; // top-out
+    for (let y = rows - 1; y >= 0; y--) {
+      const idx = rows - 1 - y;
+      grid[y][x] = idx < stack.length ? stack[idx] : null;
+    }
+  }
+  return true;
+}
+
 // True if any cell in the top row (row 0) is occupied (top-out / game over).
 export function isTopOut(grid) {
   if (grid.length === 0) return false;
