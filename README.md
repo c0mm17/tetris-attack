@@ -2,7 +2,7 @@
 
 An ASCII-art, browser-playable homage to **Tetris Attack** (a.k.a. Panel de
 Pon): a 6x12 field of colored panels where you swap adjacent blocks sideways to
-line up 3+ same-color blocks in a row)Skip.
+line up 3+ same-color blocks in a row or column.
 
 ## Play it
 
@@ -32,8 +32,8 @@ Or locally:
 
 - **Horizontal swaps only** — you swap the block under the cursor with the
   block immediately left or right of it. No vertical swaps.
-- **Matches clear only horizontally**: any contiguous run of 3+ same-color
-  blocks in a single row clears (a vertical stack of 3 does NOT clear).
+- **Matches clear horizontally OR vertically**: any contiguous run of 3+
+  same-color blocks in a single row OR a single column clears.
 - After a clear, blocks above fall down; the fall can create **new matches**,
   which clear again — each step is a **chain/combo**, multiplying the score.
 - A new row of panels falls in every ~2.5 s. If a column's pile reaches the top

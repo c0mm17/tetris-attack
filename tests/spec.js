@@ -82,11 +82,13 @@ test('findMatches handles run of 5 as one run', () => {
   assert.ok(m.every((c) => c.x <= 4 && c.y === 6));
 });
 
-test('findMatches ignores vertical stacks', () => {
+test('findMatches detects vertical runs of 3+', () => {
   const g = board();
   for (let y = 3; y <= 5; y++) core.setBlock(g, 3, y, 2);
   const m = core.findMatches(g);
-  assert.equal(m.length, 0, 'vertical column is not cleared');
+  assert.equal(m.length, 3, 'vertical run clears exactly three cells');
+  assert.ok(m.every((c) => c.x === 3));
+  assert.deepEqual(m.map((c) => c.y).sort(), [3, 4, 5]);
 });
 
 test('clearCells empties cells', () => {

@@ -67,6 +67,24 @@ export function findMatches(grid) {
       x = x2 + 1;
     }
   }
+  // Vertical runs: contiguous same-color stack (>=3) in a single column.
+  const cols = grid.length > 0 ? grid[0].length : 0;
+  for (let x = 0; x < cols; x++) {
+    let y = 0;
+    while (y < grid.length) {
+      const c = grid[y][x];
+      if (c === null) { y++; continue; }
+      let y2 = y;
+      while (y2 + 1 < grid.length && grid[y2 + 1][x] === c) y2++;
+      if (y2 - y + 1 >= 3) {
+        for (let i = y; i <= y2; i++) {
+          const key = i * 1000 + x;
+          if (!seen.has(key)) { seen.add(key); cells.push({ x, y: i }); }
+        }
+      }
+      y = y2 + 1;
+    }
+  }
   return cells;
 }
 

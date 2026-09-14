@@ -1,0 +1,5186 @@
+=== iteration loop start 2026-09-13 22:33:01 (8h window, cycle=15m) ===
+--- iteration 1 @ 2026-09-13 22:33:01 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.552894
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.226037
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.228322
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.176279
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.187727
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.225706
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.343298
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.177928
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.381231
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.365997
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.326708
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.226889
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.368123
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.292121
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.173059
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.600623
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.65779
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 230.446943
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.50023
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.281154
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.202543
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.280615
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.368239
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.234425
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 156.665129
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.931091
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.424533
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.502369
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 178.039758
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 2 @ 2026-09-13 22:48:02 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 2.142973
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.230701
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.223437
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.163957
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.182925
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.19446
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.288158
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.18289
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.432919
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.360708
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.329913
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.223792
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.313574
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.323382
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.194171
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.59874
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.683837
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 264.84563
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 3.097997
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.481027
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.322486
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.448695
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.618226
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.371584
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 190.586496
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 3.85429
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 21.20803
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.512434
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 254.740773
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 3 @ 2026-09-13 23:03:04 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.455351
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.754056
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.661738
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.4912
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.479479
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 3.59723
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.835967
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.509042
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 1.200967
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 1.02387
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.927836
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.649168
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.911467
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.484314
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.197916
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.686537
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 2.22578
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 203.116726
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 2.057566
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.383958
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.276551
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.383694
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.522033
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.305885
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 210.970475
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.95088
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.619902
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.554486
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 196.712247
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 4 @ 2026-09-13 23:18:05 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.542848
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.223937
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.219988
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.16116
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.177807
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.222093
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.284392
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.175952
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.384797
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.348183
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.316995
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.231135
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.311528
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.284252
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.18026
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.587221
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.635457
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 169.649137
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.473162
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.32093
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.205174
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.269396
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.381832
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.221765
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 175.89864
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.96721
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 22.712224
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 2.546985
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 248.043929
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 5 @ 2026-09-13 23:33:06 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.55725
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.215714
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.206706
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.165234
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.16941
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.126431
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.284657
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.183309
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.355809
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.364875
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.318274
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.220644
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.305649
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.290125
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.164766
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.607689
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.860223
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 179.443209
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.460863
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.287031
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.196491
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.264574
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.390141
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.221593
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 175.949494
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.911672
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.461954
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.495564
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 203.442047
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 6 @ 2026-09-13 23:48:07 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.52648
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.211453
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.216453
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.168347
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.182674
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.137941
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.282184
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.188533
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.378019
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.349337
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.320933
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.219385
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.314184
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.314818
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.184347
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.589622
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.633758
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 210.58724
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.439197
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.265653
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.206979
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.290364
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.363197
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.216907
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 152.466522
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.954762
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 18.128818
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.490534
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 191.513987
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 7 @ 2026-09-14 00:03:08 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.529465
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.207936
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.221729
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.169116
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.164702
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.141882
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.30045
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.170575
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.4018
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.347725
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.311577
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.234806
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.32714
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.290633
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.166289
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.586969
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.567285
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 227.688226
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.433139
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.268649
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.190582
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.262928
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.368662
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.221542
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 191.808518
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.916633
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 35.112854
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 2.4284
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 252.478042
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 8 @ 2026-09-14 00:18:09 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.533294
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.205935
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.208222
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.163688
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.166802
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.184427
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.283452
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.170605
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.475943
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.385622
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.339395
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.221633
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.342032
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.285803
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.16484
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.583079
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.662929
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 202.178762
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.442957
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.28443
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.209171
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.28263
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.367753
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.229195
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 148.824923
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.953353
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.733467
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.560202
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 173.615076
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 9 @ 2026-09-14 00:33:10 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.533295
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.210277
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.220473
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.173108
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.176608
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.175648
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.3049
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.172555
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.418175
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.3526
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.332524
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.219458
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.318769
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.30477
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.176559
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.56955
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.635873
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 198.132779
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.455505
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.277938
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.210824
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.271005
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.36617
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.233786
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 154.874082
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.996554
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.581096
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.499612
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 202.582591
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 10 @ 2026-09-14 00:48:11 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.522556
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.226124
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.231968
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.170744
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.166959
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.182487
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.340858
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.199202
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.401126
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.354283
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.328025
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.24009
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.305565
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.289196
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.162639
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.610887
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.624274
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 179.52472
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.467342
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.286008
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.210665
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.263486
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.374341
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.225284
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 225.360231
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.953336
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 28.127182
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 2.321012
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 218.383776
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 11 @ 2026-09-14 01:03:12 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 3.114092
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.296814
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.298147
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.237699
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.223962
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.672245
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.387634
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.237982
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.586536
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.48228
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.425289
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.307685
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.411476
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.392393
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.217925
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.830998
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 2.181287
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 235.344521
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.423209
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.285794
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.196273
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.275674
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.389604
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.211003
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 167.100065
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.926739
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.989426
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.482671
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 174.938625
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 12 @ 2026-09-14 01:18:13 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.546659
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.216764
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.220777
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.180197
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.172968
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.140374
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.285709
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.221661
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.375513
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.355494
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.321411
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.223327
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.304625
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.286037
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.16913
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.591037
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.722532
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 201.814696
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.396703
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.286267
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.199942
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.279562
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.372334
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.230304
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 195.698151
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.904175
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 18.642147
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.485294
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 211.175882
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 13 @ 2026-09-14 01:33:14 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.594157
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.20212
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.215274
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.158824
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.17851
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.148288
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.343808
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.18339
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.387919
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.358237
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.316888
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.22139
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.315923
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.285543
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.165741
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.586798
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.684975
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 200.365107
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.481308
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.274389
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.214398
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.266851
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.380079
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.231187
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 161.414137
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.902922
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 19.30104
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.539039
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 187.66783
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 14 @ 2026-09-14 01:48:15 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.573305
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.212039
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.220363
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.164123
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.168965
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.144443
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.287486
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.179976
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.419537
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.348357
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.323214
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.220245
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.309125
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.297255
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.165678
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.592826
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.701052
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 183.188767
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.455396
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.290583
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.206583
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.283794
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.370265
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.215006
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 166.556457
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.928433
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.386004
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.485124
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 199.43229
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 15 @ 2026-09-14 02:03:16 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.571754
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.213176
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.246371
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.164701
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.176699
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.142077
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.292891
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.185409
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.380739
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.349402
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.376077
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.23226
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.31282
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.283278
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.176178
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.584189
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.545499
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 231.373688
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 3.158471
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.492555
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.516979
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 1.07558
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 1.224411
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.671725
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 278.008383
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.911628
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.666941
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.535532
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 202.303615
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 16 @ 2026-09-14 02:18:17 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.587616
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.213938
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.225017
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.176887
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.184045
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.166787
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.323623
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.210812
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.440684
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.369455
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.321757
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.224113
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.312874
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.294429
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.170531
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.59698
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.641073
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 225.558051
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.461911
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.300229
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.205515
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.274883
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.381561
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.216776
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 161.701503
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.934231
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.333519
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.505392
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 206.312455
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 17 @ 2026-09-14 02:33:18 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.489383
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.248882
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.22277
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.160837
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.178102
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.200181
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.29058
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.174272
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.384536
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.344609
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.316698
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.247463
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.302947
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.300392
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.1806
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.580475
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.644108
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 187.213182
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.453562
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.282898
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.208578
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.280532
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.402597
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.226843
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 148.21821
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 2.12053
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.723621
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.552752
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 182.227261
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 18 @ 2026-09-14 02:48:19 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.574874
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.317818
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.220792
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.185408
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.179031
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.150725
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.285388
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.190208
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.38902
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.359373
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.315161
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.220198
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.318389
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.360025
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.167865
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.612931
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.732302
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 204.952196
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.44673
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.292071
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.200301
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.268414
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.435814
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.218564
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 195.144449
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.940256
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 32.17053
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.669441
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 182.256652
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 19 @ 2026-09-14 03:03:20 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.553288
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.211122
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.22249
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.165471
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.169146
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.13823
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.314901
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.171334
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.406078
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.348529
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.321501
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.282575
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.311434
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.282648
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.170403
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.588719
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.621895
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 220.914099
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.479483
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.272976
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.223281
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.269085
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.360424
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.222233
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 179.938486
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.921673
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.343771
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.490122
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 230.033142
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 20 @ 2026-09-14 03:18:21 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.555468
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.211046
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.231581
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.178123
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.164512
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.159903
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.296339
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.175837
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.38151
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.36592
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.329287
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.259036
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.33892
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.285069
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.168587
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.584551
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.644568
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 169.596847
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.528463
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.334228
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.209552
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.275724
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.383723
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.241351
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 179.989533
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.947082
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.310495
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.483203
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 207.842818
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 21 @ 2026-09-14 03:33:22 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.522139
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.228474
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.222593
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.177131
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.16956
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.179811
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.283726
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.188202
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.403191
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.332205
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.330999
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.23327
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.531011
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.288647
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.17702
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.610966
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.648471
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 200.460369
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.499624
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.301835
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.2085
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.286372
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.37834
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.22865
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 157.431991
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.904367
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.51701
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.489007
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 170.821443
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 22 @ 2026-09-14 03:48:23 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.592165
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.236858
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.215367
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.179705
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.164558
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.160368
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.29482
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.171487
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.426858
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.370234
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.332272
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.223621
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.338577
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.292221
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.162316
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.601148
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.706538
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 189.41274
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.490723
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.286034
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.270415
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.270378
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.36999
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.228017
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 186.166458
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.933142
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.451146
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.513317
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 221.757682
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 23 @ 2026-09-14 04:03:24 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.639893
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.21608
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.231326
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.165051
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.175933
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.201362
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.290112
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.173847
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.382403
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.356636
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.320157
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.233907
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.313856
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.285233
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.212905
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.608479
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.638476
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 208.125169
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 2.595231
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.478686
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.333172
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.46776
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.628096
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.375767
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 210.230859
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.936618
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.716785
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.507336
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 217.649298
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 24 @ 2026-09-14 04:18:25 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.494908
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.21066
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.242847
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.160852
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.174191
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.101688
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.284734
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.169076
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.413073
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.358534
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.35677
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.222387
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.303322
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.289197
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.164405
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.610212
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.632324
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 195.877366
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 3.00264
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.40878
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.280234
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.388815
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.562183
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.31927
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 197.465608
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.877434
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.601383
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.463027
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 194.006274
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 25 @ 2026-09-14 04:33:26 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.67799
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.245076
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.235404
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.209091
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.234609
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.348424
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.310842
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.17999
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.389889
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.382925
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.329635
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.231575
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.329439
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.290651
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.16969
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 1.462358
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 2.169599
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 207.233508
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.67686
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.409002
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.251506
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.304756
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.399685
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.245573
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 167.052107
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.972633
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.842551
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.563891
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 200.246065
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 26 @ 2026-09-14 04:48:27 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.505577
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.218741
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.22284
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.172399
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.19469
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.146424
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.288894
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.179435
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.377628
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.369872
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.315204
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.216546
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.301097
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.311233
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.16201
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.607911
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.644024
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 209.128511
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 2.071636
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.406622
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.277094
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.36971
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.520059
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.303451
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 198.786978
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.940447
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.603981
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.46721
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 174.551068
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 27 @ 2026-09-14 05:03:28 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.570598
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.212244
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.225076
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.164506
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.19196
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.184493
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.310816
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.175358
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.374694
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.363241
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.317879
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.219307
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.320214
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.288338
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.166307
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.590212
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.637633
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 196.842313
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.490508
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.312278
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.215168
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.300239
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.369019
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.23097
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 186.987519
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.910192
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.305456
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.498744
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 175.134002
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 28 @ 2026-09-14 05:18:29 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.52892
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.201404
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.229852
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.16093
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.16864
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.193851
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.284388
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.183868
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.377534
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.36464
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.325074
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.221182
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.306784
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.295677
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.294568
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.57836
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.624213
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 170.580946
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 3.955097
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.673822
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.490582
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.715424
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.778338
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.368533
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 251.981219
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.942533
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.697225
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.531341
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 193.425684
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 29 @ 2026-09-14 05:33:30 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.527568
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.238781
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.249736
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.170454
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.171511
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.200329
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.296852
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.217777
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.404899
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.372599
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.337526
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.226795
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.320476
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.298355
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.171778
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.59164
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.738401
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 243.295921
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.45272
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.603867
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.394036
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.279853
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.383904
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.226186
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 198.514789
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 6.704696
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 34.898394
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 3.491453
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 224.158502
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 30 @ 2026-09-14 05:48:31 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.569477
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.216376
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.229842
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.17412
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.17099
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.156791
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.288493
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.191126
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.387975
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.371389
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.353941
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.248853
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.331815
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.289876
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.16854
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.601772
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.699573
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 220.683451
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.377239
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.269996
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.209221
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.287346
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.389899
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.217909
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 182.412894
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.939285
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.42542
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.490804
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 183.326255
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 31 @ 2026-09-14 06:03:32 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.542586
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.229048
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.220458
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.162559
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.180349
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.145747
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.291257
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.186237
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.429843
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.332158
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.305976
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.213607
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.292706
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.307968
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.180053
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.582807
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 0.769843
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 172.40779
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.470388
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.293512
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.212757
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.274761
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.368677
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.237676
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 154.148812
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.908239
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.427797
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.659539
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 188.548586
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+--- iteration 32 @ 2026-09-14 06:18:33 ---
+TAP version 13
+# Subtest: createBoard dimensions and empty state
+ok 1 - createBoard dimensions and empty state
+  ---
+  duration_ms: 1.518059
+  ...
+# Subtest: setBlock/getBlock roundtrip
+ok 2 - setBlock/getBlock roundtrip
+  ---
+  duration_ms: 0.210096
+  ...
+# Subtest: swapHorizontal swaps adjacent occupied cells
+ok 3 - swapHorizontal swaps adjacent occupied cells
+  ---
+  duration_ms: 0.222015
+  ...
+# Subtest: swap refuses empty neighbor and out-of-bounds
+ok 4 - swap refuses empty neighbor and out-of-bounds
+  ---
+  duration_ms: 0.166352
+  ...
+# Subtest: swap is horizontal-only (no vertical swap helper, y ignored)
+ok 5 - swap is horizontal-only (no vertical swap helper, y ignored)
+  ---
+  duration_ms: 0.165687
+  ...
+# Subtest: findMatches detects horizontal runs of 3+
+ok 6 - findMatches detects horizontal runs of 3+
+  ---
+  duration_ms: 1.142763
+  ...
+# Subtest: findMatches handles run of 5 as one run
+ok 7 - findMatches handles run of 5 as one run
+  ---
+  duration_ms: 0.289085
+  ...
+# Subtest: findMatches ignores vertical stacks
+ok 8 - findMatches ignores vertical stacks
+  ---
+  duration_ms: 0.175463
+  ...
+# Subtest: clearCells empties cells
+ok 9 - clearCells empties cells
+  ---
+  duration_ms: 0.390346
+  ...
+# Subtest: gravity compacts columns downward
+ok 10 - gravity compacts columns downward
+  ---
+  duration_ms: 0.37007
+  ...
+# Subtest: resolveAll clears a match and counts chains
+ok 11 - resolveAll clears a match and counts chains
+  ---
+  duration_ms: 0.31789
+  ...
+# Subtest: cascade: falling blocks create a chain (combo)
+ok 12 - cascade: falling blocks create a chain (combo)
+  ---
+  duration_ms: 0.219429
+  ...
+# Subtest: insertTopRow stacks new blocks atop column piles
+ok 13 - insertTopRow stacks new blocks atop column piles
+  ---
+  duration_ms: 0.315977
+  ...
+# Subtest: insertTopRow rejects full column (top-out)
+ok 14 - insertTopRow rejects full column (top-out)
+  ---
+  duration_ms: 0.285339
+  ...
+# Subtest: isTopOut triggers when top row occupied
+ok 15 - isTopOut triggers when top row occupied
+  ---
+  duration_ms: 0.22708
+  ...
+# Subtest: createRng is deterministic
+ok 16 - createRng is deterministic
+  ---
+  duration_ms: 0.647561
+  ...
+# Subtest: stress: random play eventually tops out, score accumulates
+ok 17 - stress: random play eventually tops out, score accumulates
+  ---
+  duration_ms: 1.673958
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 175.39406
+TAP version 13
+# Subtest: game-core exports the full API
+ok 1 - game-core exports the full API
+  ---
+  duration_ms: 1.433879
+  ...
+# Subtest: index.html imports game-core.js
+ok 2 - index.html imports game-core.js
+  ---
+  duration_ms: 0.276193
+  ...
+# Subtest: page declares Tetris Attack title
+ok 3 - page declares Tetris Attack title
+  ---
+  duration_ms: 0.199024
+  ...
+# Subtest: keyboard controls wired
+ok 4 - keyboard controls wired
+  ---
+  duration_ms: 0.269442
+  ...
+# Subtest: happy hardcore audio present
+ok 5 - happy hardcore audio present
+  ---
+  duration_ms: 0.401598
+  ...
+# Subtest: no external CDN dependencies
+ok 6 - no external CDN dependencies
+  ---
+  duration_ms: 0.216771
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 166.228335
+TAP version 13
+# Subtest: deep: no unresolved matches survive resolveAll
+ok 1 - deep: no unresolved matches survive resolveAll
+  ---
+  duration_ms: 1.899664
+  ...
+# Subtest: deep: 50 seeds run cleanly and accumulate score
+ok 2 - deep: 50 seeds run cleanly and accumulate score
+  ---
+  duration_ms: 17.470938
+  ...
+# Subtest: deep: same seed is fully deterministic end-to-end
+ok 3 - deep: same seed is fully deterministic end-to-end
+  ---
+  duration_ms: 1.478666
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 175.139489
+RESULT: GREEN (spec=0 smoke=0 deep=0)
+=== 8-hour iteration window complete 2026-09-14 06:33:34 ===
