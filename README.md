@@ -21,19 +21,18 @@ Or locally:
 
 | Key | Action |
 |-----|--------|
-| Arrow keys | Move the cursor |
-| Z | Swap cursor block with the LEFT neighbor |
-| X | Swap cursor block with the RIGHT neighbor |
+| Arrow keys | Move the two-cell cursor |
+| Z / X | Swap the two cells under the cursor (colour &harr; colour or colour &harr; space) |
 | P | Pause / resume |
 | R | Restart |
 | Sound button | Toggle Happy Hardcore music (starts on your first key press) |
 
 ## Rules (faithful to Tetris Attack)
 
-- **Horizontal swaps only** — you swap the block under the cursor with the
-  block immediately left or right of it. Swapping into an empty space is
-  allowed: the block moves into the gap and blocks above the vacated cell fall
-  down.
+- **Pair cursor, horizontal swap** — the cursor surrounds two side-by-side
+  cells; pressing swap exchanges their contents (colour&harr;colour or
+  colour&harr;space). If a cell becomes empty, the blocks above it fall down
+  to fill the gap.
 - **Matches clear horizontally OR vertically**: any contiguous run of 3+
   same-color blocks in a single row OR a single column clears.
 - After a clear, blocks above fall down; the fall can create **new matches**,

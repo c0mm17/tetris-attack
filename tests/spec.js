@@ -74,6 +74,44 @@ test('swap is horizontal-only (no vertical swap helper, y ignored)', () => {
   assert.equal(core.getBlock(g, 2, 4), 1, 'vertical neighbor untouched');
 });
 
+test('swapPair swaps two colours', () => {
+  const g = board();
+  core.setBlock(g, 2, 3, 0);
+  core.setBlock(g, 3, 3, 1);
+  assert.equal(core.swapPair(g, 2, 3), true);
+  assert.equal(core.getBlock(g, 2, 3), 1);
+  assert.equal(core.getBlock(g, 3, 3), 0);
+});
+
+test('swapPair colour with space: block fills space, above falls', () => {
+  const g = board();
+  core.setBlock(g, 2, 3, 0); // colour at left cell
+  core.setBlock(g, 2, 2, 1); // block above the left cell
+  // right cell (3,3) is empty
+  assert.equal(core.swapPair(g, 2, 3), true);
+  assert.equal(core.getBlock(g, 3, 3), 0, 'colour moved into space');
+  assert.equal(core.getBlock(g, 2, 3), 1, 'above block fell into the gap');
+  assert.equal(core.getBlock(g, 2, 2), null);
+});
+
+test('swapPair space with colour: colour moves left', () => {
+  const g = board();
+  core.setBlock(g, 3, 3, 0); // colour at right cell only
+  assert.equal(core.swapPair(g, 2, 3), true);
+  assert.equal(core.getBlock(g, 2, 3), 0, 'colour moved left');
+  assert.equal(core.getBlock(g, 3, 3), null);
+});
+
+test('swapPair no-ops: both empty / identical colours / out of bounds', () => {
+  const g = board();
+  assert.equal(core.swapPair(g, 0, 0), false, 'both cells empty');
+  const h = board();
+  core.setBlock(h, 0, 0, 2);
+  core.setBlock(h, 1, 0, 2);
+  assert.equal(core.swapPair(h, 0, 0), false, 'identical colours');
+  assert.equal(core.swapPair(g, 5, 0), false, 'pair out of bounds');
+});
+
 test('findMatches detects horizontal runs of 3+', () => {
   const g = board();
   // row 5: R R R G B Y  -> run of 3 at x=0..2
@@ -202,10 +240,9 @@ test('stress: random play eventually tops out, score accumulates', () => {
       const colors = Array.from({ length: COLS }, () => Math.floor(rng() * 5));
       core.insertTopRow(g, colors);
     }
-    const x = Math.floor(rng() * COLS);
+    const x = Math.floor(rng() * (COLS - 1));
     const y = Math.floor(rng() * ROWS);
-    const dir = rng() < 0.5 ? 1 : -1;
-    if (core.swapHorizontal(g, x, y, dir)) {
+    if (core.swapPair(g, x, y)) {
       const r = core.resolveAll(g);
       score += r.totalCleared * (1 + r.chains);
     }

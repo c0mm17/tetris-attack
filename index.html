@@ -203,15 +203,16 @@
   </div>
 
   <div class="legend">
-    <b>&larr; &rarr; &uarr; &darr;</b> move cursor &nbsp;&nbsp;
-    <b>Z</b> swap LEFT &nbsp;&nbsp; <b>X</b> swap RIGHT &nbsp;&nbsp;
+    <b>&larr; &rarr; &uarr; &darr;</b> move the two-cell cursor &nbsp;&nbsp;
+    <b>Z</b> / <b>X</b> swap the pair under the cursor &nbsp;&nbsp;
     <b>P</b> pause &nbsp;&nbsp; <b>R</b> restart
   </div>
   <div class="howto">
-    Match <span class="hl">3+ same-color blocks in a single ROW or COLUMN</span> to clear them.
-    Blocks above fall down and can chain into new matches for bonus points.
+    The cursor surrounds <span class="hl">two side-by-side cells</span>. Press Z or X to swap them —
+    a colour with a colour, or a colour with a space (blocks above the new empty space fall down).
+    Match <span class="hl">3+ same-color blocks in a single ROW or COLUMN</span> to clear them;
+    falling blocks can chain into new matches for bonus points.
     A new row drops in every ~2.5s &mdash; if the board reaches the <span class="hl">top row</span>, it's game over.
-    Audio starts on your first key press.
   </div>
 
   <div id="overlay" class="hidden">
@@ -509,9 +510,9 @@ function insertRow() {
   }
 }
 
-function trySwap(dir) {
+function trySwap() {
   if (paused || gameOver || cascading) return;
-  const ok = core.swapHorizontal(grid, cursor.x, cursor.y, dir);
+  const ok = core.swapPair(grid, cursor.x, cursor.y);
   if (!ok) return;
   sfxSwap();
   // Begin the cascade resolution.
@@ -558,7 +559,7 @@ function render() {
   for (let y = 0; y < ROWS; y++) {
     for (let x = 0; x < COLS; x++) {
       const c = grid[y][x];
-      const isCursor = (x === cursor.x && y === cursor.y);
+      const isCursor = (y === cursor.y && (x === cursor.x || x === cursor.x + 1));
       const isFlash = flashCells.some(f => f.x === x && f.y === y);
       let cls, glyph;
       if (c === null) {
@@ -607,7 +608,8 @@ function frame() {
 // ---------- Input ----------
 function moveCursor(dx, dy) {
   if (paused || gameOver) return;
-  cursor.x = Math.max(0, Math.min(COLS - 1, cursor.x + dx));
+  // The cursor spans two side-by-side cells, so x is clamped to COLS-2.
+  cursor.x = Math.max(0, Math.min(COLS - 2, cursor.x + dx));
   cursor.y = Math.max(0, Math.min(ROWS - 1, cursor.y + dy));
 }
 
@@ -625,8 +627,8 @@ window.addEventListener('keydown', (e) => {
     case 'arrowright': e.preventDefault(); moveCursor(1, 0); break;
     case 'arrowup':    e.preventDefault(); moveCursor(0, -1); break;
     case 'arrowdown':  e.preventDefault(); moveCursor(0, 1); break;
-    case 'z': trySwap(-1); break;
-    case 'x': trySwap(1); break;
+    case 'z': trySwap(); break;
+    case 'x': trySwap(); break;
     case 'p': paused = true; break;
   }
 });

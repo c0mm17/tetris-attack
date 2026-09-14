@@ -19,10 +19,9 @@ function runSeed(seed, maxSteps) {
       const colors = Array.from({ length: COLS }, () => Math.floor(rng() * 5));
       core.insertTopRow(grid, colors);
     }
-    const x = Math.floor(rng() * COLS);
+    const x = Math.floor(rng() * (COLS - 1));
     const y = Math.floor(rng() * ROWS);
-    const dir = rng() < 0.5 ? 1 : -1;
-    if (core.swapHorizontal(grid, x, y, dir)) {
+    if (core.swapPair(grid, x, y)) {
       const r = core.resolveAll(grid);
       score += r.totalCleared * (1 + r.chains);
     }

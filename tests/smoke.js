@@ -9,7 +9,7 @@ const html = readFileSync(new URL('../index.html', import.meta.url), 'utf-8');
 
 test('game-core exports the full API', () => {
   const fns = [
-    'createBoard', 'setBlock', 'getBlock', 'swapHorizontal',
+    'createBoard', 'setBlock', 'getBlock', 'swapHorizontal', 'swapPair',
     'findMatches', 'clearCells', 'gravity', 'resolveAll',
     'insertTopRow', 'isTopOut', 'createRng',
   ];

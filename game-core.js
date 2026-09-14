@@ -69,6 +69,24 @@ function compactAbove(grid, x, y) {
   }
 }
 
+// Swap the contents of two side-by-side cells at (x, y) and (x+1, y). Each
+// may be a colour block or an empty space (block<->block or block<->space).
+// Any cell that becomes empty gets the blocks above it falling down to fill
+// the gap.
+export function swapPair(grid, x, y) {
+  if (y < 0 || y >= grid.length) return false;
+  if (x < 0 || x + 1 >= grid[y].length) return false;
+  const a = grid[y][x];
+  const b = grid[y][x + 1];
+  if (a === null && b === null) return false;   // nothing to swap
+  if (a !== null && a === b) return false;      // identical blocks: no-op
+  grid[y][x + 1] = a;
+  grid[y][x] = b;
+  if (b === null) compactAbove(grid, x, y);
+  if (a === null) compactAbove(grid, x + 1, y);
+  return true;
+}
+
 // Find every cell belonging to a horizontal contiguous run of >=3 same-color
 // blocks in a single row. Vertical matches are NOT included.
 // Returns an array of {x, y}.
